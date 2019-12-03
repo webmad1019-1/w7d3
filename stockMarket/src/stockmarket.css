@@ -1,0 +1,22 @@
+.stockmarket {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stockmarket svg {
+    transition: all 0.5s;
+    margin-right: 10px;
+}
+
+.stockmarket .red {
+    fill: red;
+    transform: rotate(180deg);
+}
+
+.stockmarket .green {
+    fill: green;
+    transform: rotate(0deg);
+}
+

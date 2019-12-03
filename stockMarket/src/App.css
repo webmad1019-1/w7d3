@@ -1,0 +1,29 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.App table {
+  border: 1px solid black;
+  margin-left: 20px;
+  font-size: 12px;
+}
+
+.App thead {
+  background-color: #f6f7f9;
+  font-weight: bold;
+}
+
+.App tr {
+  border: 1px solid black;
+}
+
+.App tr:nth-child(even) {
+  background-color: #f3f8fc;
+}
+
+.App td {
+  padding: 5px;
+}
+
