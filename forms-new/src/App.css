@@ -1,0 +1,8 @@
+.App {
+  display: flex;
+  justify-content: space-between;
+}
+
+table td, table tr{
+  border:1px solid black;
+}
