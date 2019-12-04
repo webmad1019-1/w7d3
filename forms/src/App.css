@@ -1,0 +1,38 @@
+.App {
+  padding: 10px;
+}
+
+.App .removal {
+  margin-bottom: 40px;
+}
+
+.App .contents {
+  display: flex;
+  flex-direction: row;
+}
+
+.App table {
+  border: 1px solid black;
+  font-size: 12px;
+}
+
+.App thead {
+  background-color: #f6f7f9;
+  font-weight: bold;
+}
+
+.App tr {
+  border: 1px solid black;
+}
+
+.App tr:nth-child(even) {
+  background-color: #f3f8fc;
+}
+
+.App td {
+  padding: 5px;
+}
+
+.App .planet-form {
+  margin-right: 20px;
+}

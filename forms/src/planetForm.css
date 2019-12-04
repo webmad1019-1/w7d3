@@ -1,0 +1,14 @@
+.planet-form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.planet-form h1 {
+    transition: all 0.5s;
+    margin-bottom: 25px;
+}
+
+.planet-form input {
+    margin-bottom: 15px;
+}
