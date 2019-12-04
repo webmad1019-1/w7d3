@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Actor from "./Actor";
 
 export default class App extends Component {
   constructor() {
@@ -22,22 +23,22 @@ export default class App extends Component {
   }
 
   deleteActor(id) {
-    let actors = [...this.state.actors]
+    // debugger
+    let actors = [...this.state.actors];
     let deletePosition;
-    
+
     for (let i = 0; i < actors.length; i++) {
       if (actors[i].id === id) {
-        deletePosition = i
+        deletePosition = i;
       }
     }
 
-    actors.splice(deletePosition, 1)
+    actors.splice(deletePosition, 1);
 
     this.setState({
       ...this.state,
       actors: actors
-    })
-
+    });
   }
 
   render() {
@@ -45,10 +46,11 @@ export default class App extends Component {
       <section className="app">
         <ul>
           {this.state.actors.map(actor => (
-            <li key={actor.id}>
-              {actor.name} - id: {actor.id}{" "}
-              <button onClick={() => this.deleteActor(actor.id)}>Delete</button>
-            </li>
+            <Actor
+              key={actor.id}
+              payload={actor}
+              onDelete={(e) => this.deleteActor(actor.id)}
+            ></Actor>
           ))}
         </ul>
       </section>

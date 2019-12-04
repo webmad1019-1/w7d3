@@ -82,10 +82,12 @@ class App extends Component {
             />
             <Route
               exact
-              path="/viewMovie/:chosenMovie"
+              path="/verPeli/:chosenMovie"
               render={props => {
                 debugger;
                 var chosenMovie = props.match.params.chosenMovie;
+                
+
                 return (
                   <MovieDetail
                     movie={this.state.movies[chosenMovie]}
@@ -101,7 +103,7 @@ class App extends Component {
             />
 
             <Route
-              path="/about"
+              path="/hector"
               render={() => {
                 return <About />;
               }}
