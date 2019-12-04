@@ -11,6 +11,9 @@ export default class App extends Component {
         age: 0,
         genre: "M"
       },
+      rangeValueR: 5,
+      rangeValueG: 5,
+      rangeValueB: 5,
       nameHasErrors: false,
       ageHasErrors: false,
       nameSortingAscending: true,
@@ -130,6 +133,27 @@ export default class App extends Component {
     });
   }
 
+  updateRangeValue(e, key) {
+    if (key === "R") {
+      this.setState({
+        ...this.state,
+        rangeValueR: e.target.value
+      });
+    }
+    if (key === "G") {
+      this.setState({
+        ...this.state,
+        rangeValueG: e.target.value
+      });
+    }
+    if (key === "B") {
+      this.setState({
+        ...this.state,
+        rangeValueB: e.target.value
+      });
+    }
+  }
+
   render() {
     return (
       <section className="App">
@@ -138,29 +162,71 @@ export default class App extends Component {
             <h1>The current actor name is {this.state.currentActor.name}</h1>
           )}
 
-          <form>
+          <div>
             <input
-              type="text"
-              placeholder="actor name"
-              onChange={e => this.updateActor(e, "name")}
-              value={this.state.currentActor.name}
-            />
-            {this.state.nameHasErrors && <h3 className="error">The name has errors</h3>}
+              type="range"
+              min="0"
+              max="255"
+              value={this.state.rangeValueR}
+              onChange={e => this.updateRangeValue(e, "R")}
+            ></input>
+            {this.state.rangeValueR}
+          </div>
+          <div>
             <input
-              type="text"
-              placeholder="actor age"
-              onChange={e => this.updateActor(e, "age")}
-              value={this.state.currentActor.age}
-            />
-            {this.state.ageHasErrors && <h3 className="error">The age has errors</h3>}
-            <label>
-              M <input type="radio" name="genre" onChange={() => this.selectGenre("M")} checked></input>
-            </label>
-            <label>
-              F <input type="radio" name="genre" onChange={() => this.selectGenre("F")}></input>
-            </label>
-            <button onClick={e => this.saveActor(e)}>OK</button>
-          </form>
+              type="range"
+              min="0"
+              max="255"
+              value={this.state.rangeValueG}
+              onChange={e => this.updateRangeValue(e, "G")}
+            ></input>
+            {this.state.rangeValueG}
+          </div>
+          <div>
+            <input
+              type="range"
+              min="0"
+              max="255"
+              value={this.state.rangeValueB}
+              onChange={e => this.updateRangeValue(e, "B")}
+            ></input>
+            {this.state.rangeValueB}
+          </div>
+          <div style={{backgroundColor: `rgb(${this.state.rangeValueR}, ${this.state.rangeValueG}, ${this.state.rangeValueB})`}}>
+            rgb({this.state.rangeValueR}, {this.state.rangeValueG}, {this.state.rangeValueB})
+          </div>
+
+          {this.state.rangeValueR > 5 && (
+            <form>
+              <input
+                type="text"
+                placeholder="actor name"
+                onChange={e => this.updateActor(e, "name")}
+                value={this.state.currentActor.name}
+              />
+              {this.state.nameHasErrors && <h3 className="error">The name has errors</h3>}
+              <input
+                type="text"
+                placeholder="actor age"
+                onChange={e => this.updateActor(e, "age")}
+                value={this.state.currentActor.age}
+              />
+              {this.state.ageHasErrors && <h3 className="error">The age has errors</h3>}
+              <label>
+                M{" "}
+                <input
+                  type="radio"
+                  name="genre"
+                  onChange={() => this.selectGenre("M")}
+                  checked
+                ></input>
+              </label>
+              <label>
+                F <input type="radio" name="genre" onChange={() => this.selectGenre("F")}></input>
+              </label>
+              <button onClick={e => this.saveActor(e)}>OK</button>
+            </form>
+          )}
         </div>
         {this.state.actors.length > 0 && (
           <table>
